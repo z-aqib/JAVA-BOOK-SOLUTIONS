@@ -1,81 +1,86 @@
-package c18e01altered;
+package c18e02;
 
 import java.util.Scanner;
 
-public class C18e01altered {
+public class C18e02 {
 
     public static void main(String[] args) {
         // TODO code application logic here
         
         /*
-        18.1 (Factorial) 
-        Using the BigInteger class introduced in Section 10.9, you can find the 
-        factorial for a large number (e.g., 100!). Implement the factorial 
-        method using recursion. Write a program that prompts the user to enter 
-        an integer and displays its factorial.
-        */
-        
-        //ALTERED - DISPLAY ALL THE FACTORIALS OF EACH NUMBER UNTIL 'N'
-        
-        // create scanner object for user input
-        Scanner input = new Scanner(System.in);
-        
-        // welcome to line
-        System.out.println("Welcome! This program displays all the factorials (!) "
-                + "until the positive integer n. ");
-        
-        // user input of 'n'
-        System.out.println("Please enter 'n'. ");
-        int n = input.nextInt();
-        
-        // n checker: if n is positive, proceed further
-        if (n > 0) {
-            
-            // run a for loop to get each number until number 'n'
+        *18.2 (Fibonacci numbers) 
+        Rewrite the fib method in Listing 18.2 using iterations.
+        Hint: To compute fib(n) without recursion, you need to obtain fib(n − 2)
+        and fib(n − 1) first. Let f0 and f1 denote the two previous Fibonacci 
+        numbers. The current Fibonacci number would then be f0 + f1. The 
+        algorithm can be described as follows:
+            f0 = 0; // For fib(0)
+            f1 = 1; // For fib(1)
             for (int i = 1; i <= n; i++) {
-                
-                // get the factorial of n
-                long factorial = factorial(i);
-        
-                // display the factorial of that number
-                System.out.printf("%2d! = %d ", i, factorial);
-        
-                // leave a line
-                System.out.println("");
-                
+                currentFib = f0 + f1;
+                f0 = f1;
+                f1 = currentFib;
             }
-            
-        }
-        
-        // n checker: if n is negative or 0, display error message and stop
-        else {
-            System.out.println("ERROR: Please enter a positive value for 'n'. ");
-        }
-        
-    }
-    
-    public static long factorial(int n) {
+            // After the loop, currentFib is fib(n)
+        Write a test program that prompts the user to enter an index and 
+        displays its Fibonacci number.
+        */
         
         /*
-        so we start with 4. it isnt 1, so the if statement is run. we have a recursion, 
-        but with 3. so now we again have a recursion with 2. then again recusion with 1.
-        now with1, we return 1. so back to the recursion of 2, we return 1*(1+1) which is 2
-        then we go back to recursion of 3. we return 2*(2+1) = 6. then we go back to 
-        recursion of 4 and get 6 * (3+1) = 24, so we return 24 to main, which is the 
-        factorial of 4.
+        Listing 18.2 ComputeFibonacci.java
+            import java.util.Scanner;
+
+            public class ComputeFibonacci {
+                // Main method
+                public static void main(String[] args) {
+                    // Create a Scanner
+                    Scanner input = new Scanner(System.in);
+                    System.out.print("Enter an index for a Fibonacci number: ");
+                    int index = input.nextInt();
+
+                    // Find and display the Fibonacci number
+                    System.out.println("The Fibonacci number at index " + index + " is " + fib(index));
+                }
+
+                //The method for finding the Fibonacci number 
+                public static long fib(long index) {
+                    if (index == 0) // Base case
+                        return 0;
+                    else if (index == 1) // Base case
+                        return 1;
+                    else // Reduction and recursive calls
+                        return fib(index − 1) + fib(index − 2);
+                }
+            }
         */
         
-        //decomposition: 4! = 3!*4. 3! = 2!*3. 2!=1!*2. 1!=1.
+        // Create a Scanner
+        Scanner input = new Scanner(System.in);
         
-        // if n is not 1, reduce n and do recursion. 
-        if (n != 1) {
-            return (factorial(--n)*(n+1));
+        System.out.print("Enter an index for a Fibonacci number: ");
+        int index = input.nextInt();
+
+        int f0 = 0; // For fib(0)
+        System.out.print(f0 + ", ");
+        int f1 = 1; // For fib(1)
+        System.out.print(f1 + ", ");
+        
+        int currentFib = 0;
+        
+        for (int i = 2; i <= index; i++) {
+            currentFib = f0 + f1;
+            f0 = f1;
+            f1 = currentFib;
+            
+            // Find and display the Fibonacci series
+            System.out.print(currentFib+", ");
+            
         }
         
-        // but if n is 1, directly return1. this is base case
-        else {
-            return 1;
-        }
+        // After the loop, currentFib is fib(n)
+        // Find and display the Fibonacci number
+        System.out.println("");
+        System.out.println("The Fibonacci number at index " + index + " is " + currentFib);
         
     }
     
