@@ -1,0 +1,66 @@
+package c18e03;
+
+import java.util.Scanner;
+
+public class C18e03 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *18.3 (Compute greatest common divisor using recursion) 
+        The gcd(m, n) can also be defined recursively as follows:
+            ■ If m % n is 0, gcd(m, n) is n.
+            ■ Otherwise, gcd(m, n) is gcd(n, m % n).
+        Write a recursive method to find the GCD. 
+        Write a test program that prompts the user to enter two integers and 
+        displays their GCD.
+        */
+        
+        // create a scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays the GCD (greatest common "
+                + "divisor) of two integers. ");
+        
+        // user input of m and n
+        System.out.println("Please enter the first number. ");
+        long m = input.nextLong();
+        System.out.println("Please enter the second number. ");
+        long n = input.nextLong();
+        
+        // make m the larger one and n the smaller one
+        if (n > m) {
+            long temp = n;
+            n = m;
+            m = temp;
+        }
+        
+        // get the gcd of m and n
+        long gcd = gcd(m,n);
+        
+        // display the gcd of integer one and two
+        System.out.printf("The greatest common divisor (GCD) of %d and %d is %d. ",
+                m, n, gcd);
+        
+        // leave a line
+        System.out.println("");
+        
+    }
+    
+    public static long gcd(long m, long n) {
+        
+        // if m%n == 0 means gcd is n. 
+        if (m % n == 0) {
+            return n;
+        }
+        
+        // if not, recursive compute 
+        else {
+            return (gcd(n, m%n));
+        }
+        
+    } 
+    
+}
