@@ -1,0 +1,82 @@
+package c18e01altered;
+
+import java.util.Scanner;
+
+public class C18e01altered {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        18.1 (Factorial) 
+        Using the BigInteger class introduced in Section 10.9, you can find the 
+        factorial for a large number (e.g., 100!). Implement the factorial 
+        method using recursion. Write a program that prompts the user to enter 
+        an integer and displays its factorial.
+        */
+        
+        //ALTERED - DISPLAY ALL THE FACTORIALS OF EACH NUMBER UNTIL 'N'
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays all the factorials (!) "
+                + "until the positive integer n. ");
+        
+        // user input of 'n'
+        System.out.println("Please enter 'n'. ");
+        int n = input.nextInt();
+        
+        // n checker: if n is positive, proceed further
+        if (n > 0) {
+            
+            // run a for loop to get each number until number 'n'
+            for (int i = 1; i <= n; i++) {
+                
+                // get the factorial of n
+                long factorial = factorial(i);
+        
+                // display the factorial of that number
+                System.out.printf("%2d! = %d ", i, factorial);
+        
+                // leave a line
+                System.out.println("");
+                
+            }
+            
+        }
+        
+        // n checker: if n is negative or 0, display error message and stop
+        else {
+            System.out.println("ERROR: Please enter a positive value for 'n'. ");
+        }
+        
+    }
+    
+    public static long factorial(int n) {
+        
+        /*
+        so we start with 4. it isnt 1, so the if statement is run. we have a recursion, 
+        but with 3. so now we again have a recursion with 2. then again recusion with 1.
+        now with1, we return 1. so back to the recursion of 2, we return 1*(1+1) which is 2
+        then we go back to recursion of 3. we return 2*(2+1) = 6. then we go back to 
+        recursion of 4 and get 6 * (3+1) = 24, so we return 24 to main, which is the 
+        factorial of 4.
+        */
+        
+        //decomposition: 4! = 3!*4. 3! = 2!*3. 2!=1!*2. 1!=1.
+        
+        // if n is not 1, reduce n and do recursion. 
+        if (n != 1) {
+            return (factorial(--n)*(n+1));
+        }
+        
+        // but if n is 1, directly return1. this is base case
+        else {
+            return 1;
+        }
+        
+    }
+    
+}
