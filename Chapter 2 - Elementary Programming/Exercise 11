@@ -1,0 +1,75 @@
+package c2e11;
+
+import java.util.Scanner;
+
+public class C2e11 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        2.11 (Population projection) 
+        Rewrite Programming Exercise 1.11 to prompt the user to enter the number 
+        of years and display the population after the number of years.
+        Use the hint in Programming Exercise 1.11 for this program. 
+        Here is a sample run of the program:
+            Enter the number of years: 5
+            The population in 5 years is 325932969
+        */
+        
+        /*
+        *1.11 (Population projection) 
+        The U.S. Census Bureau projects population based on the following assumptions:
+        ■ One birth every 7 seconds
+        ■ One death every 13 seconds
+        ■ One new immigrant every 45 seconds
+        Write a program to display the population for each of the next five years. 
+        Assume that the current population is 312,032,486, and one year has 365 days. 
+        Hint: In Java, if two integers perform division, the result is an integer. 
+        The fractional part is truncated. For example, 5 / 4 is 1 (not 1.25) and
+        10 / 4 is 2 (not 2.5). To get an accurate result with the fractional part, 
+        one of the values involved in the division must be a number with a 
+        decimal point. For example, 5.0 / 4 is 1.25 and 10 / 4.0 is 2.5.
+        */
+        
+        // create new scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program will display the population for "
+                + "after N years. ");
+        System.out.println("As per the U.S. Census Bureau Project, there is, ");
+        System.out.println("- One birth every 7 seconds. ");
+        System.out.println("- One death every 13 seconds. ");
+        System.out.println("- One new immigrant every 45 seconds. ");
+        
+        // user input of years
+        System.out.println("Please enter the year you want the population in. ");
+        int numberofyears = input.nextInt();
+        
+        // compute no of seconds in a year.
+        int seconds = 3600*24*365; // 3600 secs in an hour, 24 hours in a day, 365 days in a year
+        
+        // total births in a year 
+        double births = seconds/7.0; 
+        
+        // total deaths in a year
+        double deaths = seconds/13.0; 
+        
+        // total immigrants in a year
+        double immigrants = seconds/45.0;
+        
+        // increase or decrease of population each year
+        double difference = births - deaths + immigrants;
+        
+        // user years computation
+        // multiply the difference by number of years and add the starting population
+        long years = (long) ((numberofyears * difference) + 312032486.0); 
+        
+        // display the information: the current pop and the pop after user years
+        System.out.println("The current population is 312,032,486. ");
+        System.out.println("The population in " + numberofyears + " years is " + years + ".");
+    
+    }
+
+}
