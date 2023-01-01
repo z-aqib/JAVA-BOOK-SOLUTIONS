@@ -1,0 +1,61 @@
+package c1e11correct;
+
+public class C1e11correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *1.11 (Population projection) The U.S. Census Bureau projects population 
+        based on the following assumptions:
+        ■ One birth every 7 seconds
+        ■ One death every 13 seconds
+        ■ One new immigrant every 45 seconds
+        Write a program to display the population for each of the next five years. 
+        Assume that the current population is 312,032,486, and one year has 365 days. 
+        Hint: In Java, if two integers perform division, the result is an integer. 
+        The fractional part is truncated. For example, 5 / 4 is 1 (not 1.25) and
+        10 / 4 is 2 (not 2.5). To get an accurate result with the fractional part, 
+        one of the values involved in the division must be a number with a 
+        decimal point. For example, 5.0 / 4 is 1.25 and 10 / 4.0 is 2.5.
+        */
+        
+        // welcome to line
+        System.out.println("Welcome! This program will display the population for "
+                + "the next five years. ");
+        System.out.println("As per the U.S. Census Bureau Project, there is, ");
+        System.out.println("- One birth every 7 seconds. ");
+        System.out.println("- One death every 13 seconds. ");
+        System.out.println("- One new immigrant every 45 seconds. ");
+        
+        // display current population
+        System.out.println("The current population is 312,032,486. ");
+        
+        // leave a line
+        System.out.println("");
+        
+        // display each years population estimate
+        System.out.println("THE POPULATION ESTIMATE IS: ");
+        
+        // no of seconds in a year: 3600 secs in an hour, 24 hours in a day, 
+        // 365 days in a year which is seconds = 3600*24*365
+        // total births in a year - seconds / 7
+        // total deaths in a year - seconds / 13
+        // total immigrants in a year - seconds / 45
+        // formula: current population, add (year*births), less (year*deaths), 
+        //          add (year*immigrants)
+        
+        System.out.println("1st year is: " + (312032486 + (1 * ((3600*24*365) / 
+                7)) - (1 * ((3600*24*365) / 13)) + (1 * ((3600*24*365) / 45))));
+        System.out.println("2nd year is: " + (312032486 + (2 * ((3600*24*365) / 
+                7)) - (2 * ((3600*24*365) / 13)) + (2 * ((3600*24*365) / 45))));
+        System.out.println("3rd year is: " + (312032486 + (3 * ((3600*24*365) / 
+                7)) - (3 * ((3600*24*365) / 13)) + (3 * ((3600*24*365) / 45))));
+        System.out.println("4th year is: " + (312032486 + (4 * ((3600*24*365) / 
+                7)) - (4 * ((3600*24*365) / 13)) + (4 * ((3600*24*365) / 45))));
+        System.out.println("5th year is: " + (312032486 + (5 * ((3600*24*365) / 
+                7)) - (5 * ((3600*24*365) / 13)) + (5 * ((3600*24*365) / 45))));
+        
+    }
+    
+}
