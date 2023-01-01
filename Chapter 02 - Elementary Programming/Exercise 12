@@ -1,0 +1,50 @@
+package c2e12correct;
+
+import java.util.Scanner;
+
+public class C2e12correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        2.12 (Physics: finding runway length) 
+        Given an airplane’s acceleration a and take-off speed v, you can compute 
+        the minimum runway length needed for an airplane to take off using the 
+        following formula:
+            length = v^2/2a
+        Write a program that prompts the user to enter v in meters/second (m/s) 
+        and the acceleration a in meters/second squared (m/s^2), then, displays 
+        the minimum runway length.
+            Enter speed and acceleration: 60 3.5
+            The minimum runway length for this airplane is 514.286
+        */
+        
+        // create Scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays the minimum runway length"
+                + " needed for an airplane to take off using a take-off speed (v) "
+                + "and an acceleration (a). ");
+        System.out.println("The acceleration (a) should be in meters/second squared "
+                + "(m/s^2) and the take off speed (v) should be in meters/second (m/s). ");
+        
+        // user input of speed
+        System.out.println("Please enter take-off speed (v) in meters/second. ");
+        double v = input.nextDouble();
+        
+        // user input of acceleration
+        System.out.println("Please enter acceleration (a) in meters/second squared. ");
+        double a = input.nextDouble();
+            
+        // runway length computation
+        float length = (float) ((v * v) / (2 * a)); //use float for less decimal places
+            
+        // output length
+        System.out.println("The minimum runway length for this airplane is "
+                + ""+length+" meters. ");
+        
+    }
+    
+}
