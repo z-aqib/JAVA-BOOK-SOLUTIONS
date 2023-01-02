@@ -1,0 +1,64 @@
+package c2e23correct;
+
+import java.util.Scanner;
+
+public class C2e23correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *2.23 (Cost of driving) 
+        Write a program that prompts the user to enter the distance to drive, 
+        the fuel efficiency of the car in miles per gallon, and the price per 
+        gallon then displays the cost of the trip. 
+        Here is a sample run:
+            Enter the driving distance: 900.5
+            Enter miles per gallon: 25.5
+            Enter price per gallon: 3.55
+            The cost of driving is $125.36
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays the cost of a trip based "
+                + "on the fuel transport cost. ");
+        System.out.println("To get the fuel transport cost of a trip, you will be "
+                + "required to enter your: ");
+        System.out.println("    -> driving distance in miles ");
+        System.out.println("    -> fuel efficiency of the car in miles per gallon ");
+        System.out.println("    (i.e how many miles does your car travel on one gallon of fuel) ");
+        System.out.println("    -> the price per gallon in dollars ($). ");
+        
+        // user input of driving distance
+        System.out.println("Please enter the driving distance in miles. ");
+        double distance = input.nextDouble();
+        
+        // user input of fuel effeciency
+        System.out.println("Please enter fuel efficiency: miles travelled per gallon. ");
+        double fuel = input.nextDouble();
+            
+        // user input of cost per gallon
+        System.out.println("Please enter price per gallon in dollars ($). ");
+        double cost = input.nextDouble();
+                
+        // compute gallons of fuel needed
+        double gallons = distance / fuel;
+                    
+        // compute cost of those gallons required
+        double costoftrip = gallons * cost;
+                    
+        // display cost of trip
+        System.out.println("The cost of driving is $" + costoftrip);
+                    
+        // round the total cost of trip to the nearest dollar
+        double rounded = Math.ceil(costoftrip);
+                    
+        // display final cost rounded to the nearest dollar
+        System.out.println("    rounded to the nearest dollar is $" + rounded);
+        
+    }
+    
+}
