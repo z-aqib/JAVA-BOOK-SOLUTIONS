@@ -1,0 +1,62 @@
+package c2e6correct;
+
+import java.util.Scanner;
+
+public class C2e6correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        **2.6 (Sum the digits in an integer) 
+        Write a program that reads an integer between 0 and 1000 and adds all 
+        the digits in the integer. For example, if an integer is 932, the sum of 
+        all its digits is 14.
+        Hint: Use the % operator to extract digits, and use the / operator to 
+        remove the extracted digit. For instance, 932 % 10 = 2 and 932 / 10 = 93.
+        Here is a sample run:
+            Enter a number between 0 and 1000: 999
+            The sum of the digits is 27
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program will sum the digits of your entered "
+                + "integer between 0 and 1000. ");
+        
+        // user input of number
+        System.out.println("Please enter the number between 0 and 1000. ");
+        int user = input.nextInt();
+        
+        // compute units (less then 10)
+        int units = user % 10;
+        
+        // remove extracted digit
+        user = user / 10;
+        
+        // compute tens (10-99)
+        int tens = user % 10;
+        
+        // remove extracted digit
+        user = user / 10; 
+        
+        // compute hundreds (100-999)
+        int hundreds = user % 10;
+        
+        // remove extracted digit
+        user = user / 10;
+        
+        //exceptional case for 1000, compute only digit '1'
+        int thousand = user % 10;
+        
+        // sum of digits
+        int sum = units + tens + hundreds + thousand;
+        
+        // display sum of digits
+        System.out.println("the sum of the digits is " + sum);
+        
+    }
+    
+}
