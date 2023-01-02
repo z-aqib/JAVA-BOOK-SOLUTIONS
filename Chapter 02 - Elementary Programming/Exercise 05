@@ -1,0 +1,51 @@
+package c2e5correct;
+
+import java.util.Scanner;
+
+public class C2e5correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *2.5 (Financial application: calculate tips) 
+        Write a program that reads the subtotal and the gratuity rate, then 
+        computes the gratuity and total. For example, if the user enters 10 for 
+        subtotal and 15% for gratuity rate, the program displays $1.5 as 
+        gratuity and $11.5 as total. 
+        Here is a sample run:
+            Enter the subtotal and a gratuity rate: 10 15
+            The gratuity is $1.5 and total is $11.5
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This is a financial application. ");
+        System.out.println("This will read the user subtotal and user gratuity "
+                + "rate and will compute the gratuity and total. ");
+        
+        // user input of subtotal
+        System.out.println("Please enter the subtotal in dollars($). ");
+        double subtotal = input.nextDouble(); 
+        
+        // user input of rate
+        System.out.println("Please enter the gratuity rate as a percentage(%). ");
+        double g_rate = input.nextDouble(); 
+        
+        // convert rate from percentage to decimal
+        double rate = g_rate/100; 
+        
+        // multiply decimal rate by subtotal to find gratuity in dollars
+        double gratuity = rate * subtotal; 
+        
+        // add gratuity to subtotal for total
+        double total = gratuity + subtotal; 
+        
+        // display gratutity and total
+        System.out.println("The gratuity is $" + gratuity + " and total is $" + total);
+        
+    }
+    
+}
