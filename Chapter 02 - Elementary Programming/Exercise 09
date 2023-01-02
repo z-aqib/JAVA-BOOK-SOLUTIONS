@@ -1,0 +1,52 @@
+package c2e9correct;
+
+import java.util.Scanner;
+
+public class C2e9correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        2.9 (Physics: acceleration) 
+        Average acceleration is defined as the change of velocity divided by the 
+        time taken to make the change, as given by the following formula:
+            a = v1 - v0 / t
+        Write a program that prompts the user to enter the starting velocity v0 
+        in meters/second, the ending velocity v1 in meters/second, and the time 
+        span t in seconds, then displays the average acceleration. 
+        Here is a sample run:
+            Enter v0, v1, and t: 5.5 50.9 4.5
+            The average acceleration is 10.0889
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program calculates average acceleration. ");
+        
+        // user input of starting velocity
+        System.out.println("Please enter starting velocity (v0) in meters per second. ");
+        double v0 = input.nextDouble();
+        
+        // user input of ending velocity
+        System.out.println("Please enter ending velocity (v1) in meters per second. ");
+        double v1 = input.nextDouble();
+        
+        // user input of time spam
+        System.out.println("Please enter time span (t) in seconds. ");
+        double t = input.nextDouble();
+        
+        // numerator of formula computation
+        double v = v1 - v0;
+            
+        // acceleration computation (numerator divided by denominator)
+        double acc = v / t;
+            
+        // display average acceleration
+        System.out.println("The average acceleration is " + acc);
+        
+    }
+    
+}
