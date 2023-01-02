@@ -1,0 +1,57 @@
+package c2e7correct;
+
+import java.util.Scanner;
+
+public class C2e7correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *2.7 (Find the number of years) 
+        Write a program that prompts the user to enter the minutes (e.g., 1 
+        billion), and displays the maximum number of years and remaining days 
+        for the minutes. For simplicity, assume that a year has 365 days. 
+        Here is a sample run:
+            Enter the number of minutes: 1000000000
+            1000000000 minutes is approximately 1902 years and 214 days
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program calculates the number of years "
+                + "and days from a minutes value. ");
+        
+        // user input of integer minutes
+        System.out.println("Please enter the number of minutes. ");
+        int minutes = input.nextInt(); 
+        
+        // find no of hours as 60 mins is one hour
+        double hours = minutes / 60;
+            
+        // find no of days as one day is 24 hours
+        double days = (hours / 24); 
+            
+        //find years as one year is 365 days, convert to integers
+        int years = (int) (days / 365);
+        
+        /*
+        example there are 1000 days, so that would be 2 years as integer value 
+        but thats 730 days and 270 days are left, so find how many days are 
+        accounted for in those years and how many are left
+        hence subtract the number of days accounted for in the years from the total 
+        days and find remaining days i.e. days - (years*365)
+        ANOTHER METHOD TO FIND REMAINING DAYS : int dayss = (int) days % 365
+        */
+        
+        int remdays = (int) (days - (years*365)); 
+        
+        // display minutes entered by user into years and days
+        System.out.println(minutes+" minutes is approximately "+years+ " "
+                + "years and "+remdays+" days. ");
+        
+    }
+
+}
