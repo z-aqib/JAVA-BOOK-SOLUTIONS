@@ -1,0 +1,72 @@
+package c2e13correct;
+
+import java.util.Scanner;
+
+public class C2e13correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        **2.13 (Financial application: compound value) 
+        Suppose you save $100 each month into a savings account with an annual 
+        interest rate of 5%. Thus, the monthly interest rate is 0.05/12 = 0.00417. 
+        After the first month, the value in the account becomes
+            100 * (1 + 0.00417) = 100.417
+        After the second month, the value in the account becomes
+            (100 + 100.417) * (1 + 0.00417) = 201.252
+        After the third month, the value in the account becomes
+            (100 + 201.252) * (1 + 0.00417) = 302.507
+        and so on.
+        Write a program that prompts the user to enter a monthly saving amount 
+        and displays the account value after the sixth month. (In Programming 
+        Exercise 5.30, you will use a loop to simplify the code and display the 
+        account value for any month.)
+            Enter the monthly saving amount: 100
+            After the sixth month, the account value is $608.81
+        */
+        
+        // create a scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays the savings account value "
+                + "in dollars ($) after six months. ");
+        System.out.println("This saving account has a 5% interest rate. ");
+        
+        // user input of amount
+        System.out.println("Please enter the monthly saving amount in dollars($). ");
+        double amount = input.nextDouble();
+        
+        // annual interest in decimal places is divided by 100 i.e. (5/100=0.05)
+        // monthly interest rate is annual rate divided by 12
+        double m = 0.05/12D;
+            
+        // acording to compound interest, add 1 to monthly interest
+        double rate = m + 1;
+            
+        // first month
+        double first = rate * amount;
+            
+        // second month
+        double second = rate * (amount+first);
+            
+        // third month
+        double third = rate * (amount+second);
+            
+        // fourth month
+        double fourth = rate * (amount+third);
+            
+        // fifth month
+        double fifth = rate * (amount+fourth);
+            
+        // sixth month; convert to float for lesser decimal places
+        float sixth = (float) (rate * (amount+fifth));
+            
+        // output the starting amount and the amount after six months
+        System.out.println("At the beginning of the first month, the account value is $" + amount);
+        System.out.println("After the sixth month, the account value is $" + sixth);
+            
+    }
+        
+}
