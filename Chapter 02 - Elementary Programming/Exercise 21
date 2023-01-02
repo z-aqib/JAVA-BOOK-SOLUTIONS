@@ -1,0 +1,74 @@
+package c2e21correct;
+
+import java.util.Scanner;
+
+public class C2e21correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *2.21 (Financial application: calculate future investment value) 
+        Write a program that reads in investment amount, annual interest rate, 
+        and number of years and displays the future investment value using the 
+        following formula:
+            futureInvestmentValue =
+                investmentAmount * (1 + monthlyInterestRate)^(numberOfYears*12)
+        For example, if you enter amount 1000, annual interest rate 3.25%, and 
+        number of years 1, the future investment value is 1032.98.
+        Here is a sample run:
+            Enter investment amount: 1000.56
+            Enter annual interest rate in percentage: 4.25
+            Enter number of years: 1
+            Future value is $1043.92
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("FINANCIAL APPLICATION: FURTURE INVESTMENT VALUE");
+        System.out.println("Welcome! This program will display the future investment "
+                + "value using: ");
+        System.out.println("    - investment amount in dollars ($) ");
+        System.out.println("    - annual interest rate in percentage (%) ");
+        System.out.println("    - number of years (365 days = 1 year) in integer value. ");
+        
+        // user input of starting investment amount
+        System.out.println("Please enter investment amount in dollars ($). ");
+        double amount = input.nextDouble();
+        
+        // user input of annual interest rate
+        System.out.println("Please enter annual interest rate in percentage (%). ");
+        double annual_interest_rate = input.nextDouble();
+            
+        // user input of number of years
+        System.out.println("Please enter number of years. ");
+        int years = input.nextInt();
+                
+        // change annual interest rate from percentage to decimal
+        double annual_interest_decimal = annual_interest_rate / 100D;
+                    
+        // change annual interest decimal from annual to monthly
+        double monthly_interest_decimal = annual_interest_decimal /12D;
+                    
+        // formula computation
+        double f1 = 1 + monthly_interest_decimal;
+        double f2 = years * 12D;
+        double f3 = Math.pow(f1, f2);
+        double future_investment_value = amount * f3;
+                    
+        // display future investment value
+        System.out.println("Future investment value is $" + future_investment_value);
+                    
+        // EXTRA----------------------------------------------------
+
+        // calculate future investment value rounded to the nearest dollar
+        double future_inv_value_rounded = Math.ceil(future_investment_value);
+        
+        // display rounded value
+        System.out.println("    Rounded to the nearest dollar is $" + future_inv_value_rounded);
+        
+    }
+    
+}
