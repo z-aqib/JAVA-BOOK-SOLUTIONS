@@ -34,7 +34,7 @@ public class C2e1 {
         double fahrenheit = (9.0 / 5) * celsius + 32;
         
         // print values
-        System.out.println(celsius+" Celsius is "+fahrenheit+" Fahrenheit. ");
+        System.out.println(celsius + " Celsius is " + fahrenheit + " Fahrenheit. ");
         
     }
     
