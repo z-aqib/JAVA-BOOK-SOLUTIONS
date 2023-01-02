@@ -1,0 +1,56 @@
+package c2e15;
+
+import java.util.Scanner;
+
+public class C2e15 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        2.15 (Geometry: distance of two points) 
+        Write a program that prompts the user to enter two points (x1, y1) and 
+        (x2, y2) and displays their distance. The formula for computing the 
+        distance is 
+            [(x2 - x1)^2 + (y2 - y1)^2]^1/2. 
+        Note you can use Math.pow(a, 0.5) to compute 2a. 
+        Here is a sample run:
+            Enter x1 and y1: 1.5 -3.4
+            Enter x2 and y2: 4 5
+            The distance between the two points is 8.764131445842194
+        */
+        
+        // create a Scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome line
+        System.out.println("Welcome! This program displays the distance between "
+                + "(x1,y1) and (x2,y2). ");
+        
+        // user input of x1,y1
+        System.out.println("Please enter x1 (x axis position of first coordinate). ");
+        double x1 = input.nextDouble();
+        System.out.println("Please enter y1 (y axis position of first coordinate). ");
+        double y1 = input.nextDouble();
+        
+        // user input of x2,y2
+        System.out.println("Please enter x2 (x axis position of second coordinate). ");
+        double x2 = input.nextDouble();
+        System.out.println("Please enter y2 (y axis position of second coordinate). ");
+        double y2 = input.nextDouble();
+        
+        // computation of formula
+        double x = Math.pow(x2 - x1 , 2);
+        double y = Math.pow(y2 - y1 , 2);
+        double distance = Math.pow(x + y , 0.5);
+        
+        // display user coordinates
+        System.out.println("(x1, y1) = (" + x1 + ", " + y1 + ") ");
+        System.out.println("(x2, y2) = (" + x2 + ", " + y2 + ") ");
+        
+        // display distance
+        System.out.println("The distance between the two points is " + distance);
+    
+    }
+    
+}
