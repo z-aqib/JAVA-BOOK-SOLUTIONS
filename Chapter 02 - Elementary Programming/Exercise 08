@@ -1,0 +1,66 @@
+package c2e8correct;
+
+import java.util.Scanner;
+
+public class C2e8correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *2.8 (Current time) 
+        Listing 2.7, ShowCurrentTime.java, gives a program that displays the 
+        current time in GMT. Revise the program so it prompts the user to enter 
+        the time zone offset to GMT and displays the time in the specified time zone. 
+        Here is a sample run:
+            Enter the time zone offset to GMT: -5
+            The current time is 4:50:34
+        */
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays the GMT time and the time"
+                + " as per your specified time zone in 24-hour clock. ");
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // offset user input
+        System.out.println("Please enter the time zone offset to GMT. ");
+        System.out.println("The offset must be between -12 and +14. ");
+        int offset = input.nextInt();
+        
+        // GMT computation
+        
+        // total number of milli seconds
+        long tms = System.currentTimeMillis();
+        
+        // total number of seconds
+        long ts = tms / 1000; 
+        
+        // the currect second
+        long secs = ts % 60; 
+        
+        // total minutes is total seconds divided by 60
+        long tm = ts / 60; 
+        
+        // the current minute
+        long mins = tm % 60; 
+        
+        // total hours is total minutes divided by 60
+        long th = tm / 60; 
+        
+        // the current hour
+        long hours = th % 24;
+        
+        // display current GMT time
+        System.out.println("Current GMT time is "+hours+":"+mins+":"+secs); 
+        
+        // add or subtract the offset to hours
+        hours = hours + offset;
+        
+        // display the offset time
+        System.out.println("The offset time is "+hours+":"+mins+":"+secs);
+        
+    }
+    
+}
