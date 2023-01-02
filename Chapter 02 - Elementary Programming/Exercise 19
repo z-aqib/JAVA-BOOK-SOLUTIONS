@@ -1,0 +1,79 @@
+package c2e19;
+
+import java.util.Scanner;
+
+public class C2e19 {
+
+    public static void main(String[] args) {
+        
+        /*
+        *2.19 (Geometry: area of a triangle) 
+        Write a program that prompts the user to enter three points, (x1, y1), 
+        (x2, y2), and (x3, y3), of a triangle then displays its area. 
+        The formula for computing the area of a triangle is
+            s = (side1 + side2 + side3)/2;
+            area = (s(s - side1)(s - side2)(s - side3))^0.5
+        Here is a sample run:
+            Enter the coordinates of three points separated by spaces like x1 y1 
+            x2 y2 x3 y3: 1.5 -3.4 4.6 5 9.5 -3.4
+            The area of the triangle is 33.6
+        */
+        
+        // create Scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome line
+        System.out.println("Welcome! This program displays the area of triangle "
+                + "formed by 3 points (x1,y1) (x2,y2) (x3,y3). ");
+        
+        // coordinate 1 input
+        System.out.println("Please enter x1 (x axis value of 1st coordinate). ");
+        double x1 = input.nextDouble();
+        System.out.println("Please enter y1 (y axis value of 1st coordinate). ");
+        double y1 = input.nextDouble();
+        
+        // coordinate 2 input
+        System.out.println("Please enter x2 (x axis value of 2nd coordinate). ");
+        double x2 = input.nextDouble();
+        System.out.println("Please enter y2 (y axis value of 2nd coordinate). ");
+        double y2 = input.nextDouble();
+        
+        // coordinate 3 input
+        System.out.println("Please enter x3 (x axis value of 3rd coordinate). ");
+        double x3 = input.nextDouble();
+        System.out.println("Please enter y3 (y axis value of 3rd coordinate). ");
+        double y3 = input.nextDouble();
+        
+        // side 1 computation (AB)(x1,y1) and (x2,y2)
+        double x1_x2 = Math.pow(x2-x1 , 2);
+        double y1_y2 = Math.pow(y2-y1 , 2);
+        double side1 = Math.pow(x1_x2 + y1_y2 , 0.5);
+        
+        // side 2 computation (BC)(x2,y2) and (x3,y3)
+        double x2_x3 = Math.pow(x3-x2 , 2);
+        double y2_y3 = Math.pow(y3-y2 , 2);
+        double side2 = Math.pow(x2_x3 + y2_y3 , 0.5);
+        
+        // side 3 computation (AC)(x1,y1) and (x3,y3)
+        double x1_x3 = Math.pow(x3-x1 , 2);
+        double y1_y3 = Math.pow(y3-y1 , 2);
+        double side3 = Math.pow(x1_x3 + y1_y3 , 0.5);
+        
+        // formula computation
+        double s = (side1 + side2 + side3)/2;
+        double area1 = s - side1;
+        double area2 = s - side2;
+        double area3 = s - side3;
+        double area = Math.pow(s * area1 * area2 * area3, 0.5);
+        
+        // display coordinates entered by user
+        System.out.println("(x1, y1) = (" + x1 + ", " + y1 + ") ");
+        System.out.println("(x2, y2) = (" + x2 + ", " + y2 + ") ");
+        System.out.println("(x3, y3) = (" + x3 + ", " + y3 + ") ");
+        
+        // display area
+        System.out.println("The area of the triangle is "+area+" units. ");
+        
+    }
+    
+}
