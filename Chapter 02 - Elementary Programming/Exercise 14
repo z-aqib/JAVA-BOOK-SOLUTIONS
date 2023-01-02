@@ -1,0 +1,52 @@
+package c2e14correct;
+
+import java.util.Scanner;
+
+public class C2e14correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *2.14 (Health application: computing BMI) 
+        Body Mass Index (BMI) is a measure of  health on weight. It can be 
+        calculated by taking your weight in kilograms and dividing, by the 
+        square of your height in meters. Write a program that prompts the user to 
+        enter a weight in pounds and height in inches and displays the BMI. Note 
+        one pound is 0.45359237 kilograms and one inch is 0.0254 meters. 
+        Here is a sample run:
+            Enter weight in pounds: 95.5
+            Enter height in inches: 50
+            BMI is 26.8573
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome line
+        System.out.println("Welcome! This program calculates BMI (Body Mass Index) "
+                + "of your entered weight in pounds and height in inches. ");
+        
+        // user entered weight
+        System.out.println("Please enter weight in pounds. ");
+        double pounds = input.nextDouble();
+        
+        // user entered height
+        System.out.println("Please enter height in inches. ");
+        double inches = input.nextDouble();
+            
+        // weight: pounds to kilograms
+        double kilograms = pounds*0.45359237D;
+        
+        // height: inches to metres
+        double metres = inches * 0.0254D;
+                
+        // BMI computation
+        double BMI = kilograms / (metres*metres);
+                
+        // output BMI
+        System.out.println("BMI is "+BMI);
+                
+    }
+    
+}
