@@ -1,8 +1,8 @@
-package c2e2;
+package c2e2correct;
 
 import java.util.Scanner;
 
-public class C2e2 {
+public class C2e2correct {
 
     public static void main(String[] args) {
         // TODO code application logic here
@@ -30,39 +30,19 @@ public class C2e2 {
         System.out.println("Please enter the radius of the cylinder. ");
         double radius = input.nextDouble();
         
-        // if radius is positive, proceed further
-        if (radius > 0) {
-            
-            // user input of length
-            System.out.println("Please enter the length of the cylinder. ");
-            double length = input.nextDouble();
-            
-            // if length is positive, proceed further
-            if (length > 0) {
-                
-                // area computation
-                double area = radius * radius * Math.PI;
-                
-                // volume computation
-                double volume = area * length;
-                
-                // output area and volume
-                System.out.println("The area is "+area);
-                System.out.println("The volume is "+volume);
-                
-            }
-            
-            // if length is negative or 0, output error message and stop
-            else {
-                System.out.println("ERROR: Please enter a positive value for length. ");
-            }
-            
-        }
+        // user input of length
+        System.out.println("Please enter the length of the cylinder. ");
+        double length = input.nextDouble();
         
-        // if radius is negative or 0, output error message and stop
-        else {
-            System.out.println("ERROR: Please enter a positive value for radius. ");
-        }
+        // area computation
+        double area = radius * radius * Math.PI;
+        
+        // volume computation
+        double volume = area * length;
+        
+        // output area and volume
+        System.out.println("The area is " + area);
+        System.out.println("The volume is " + volume);
         
     }
     
