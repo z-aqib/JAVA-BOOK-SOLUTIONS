@@ -1,0 +1,38 @@
+package c2e4correct;
+
+import java.util.Scanner;
+
+public class C2e4correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        2.4 (Convert pounds into kilograms) 
+        Write a program that converts pounds into kilograms. The program prompts 
+        the user to enter a number in pounds, converts it to kilograms, and 
+        displays the result. One pound is 0.454 kilogram. 
+        Here is a sample run:
+            Enter a number in pounds: 55.5
+            55.5 pounds is 25.197 kilograms
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program converts pounds into kilograms. ");
+        
+        // user input of pounds
+        System.out.println("Enter a number in pounds. ");
+        double pounds = input.nextDouble();
+        
+        // convert pounds to kilos
+        double kilo = pounds * 0.454;
+        
+        // display conversion 
+        System.out.println(pounds + " pounds is " + kilo + " kilograms ");
+        
+    }
+    
+}
