@@ -1,0 +1,46 @@
+package c3e08;
+
+import java.util.Scanner;
+
+public class C3e08 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *3.8 (Sort three integers) 
+        Write a program that prompts the user to enter three integers and 
+        display the integers in non-decreasing order.
+        */
+        
+        // create Scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays your entered three integers "
+                + "in non-decreasing order. ");
+        
+        // user input of numbers
+        System.out.print("Please enter integer one: ");
+        int one = input.nextInt();
+        System.out.print("Please enter integer two: ");
+        int two = input.nextInt();
+        System.out.print("Please enter integer three: ");
+        int three = input.nextInt();
+        
+        // find largest
+        int max = Math.max(one, Math.max(two, three));
+        
+        // find smallest
+        int min = Math.min(one, Math.min(two, three));
+        
+        // find middle
+        int sum = one + two + three;
+        int mid = sum - min - max;
+        
+        // display in non-decreasing order
+        System.out.println("In increasing order: " + min + ", " + mid + ", " + max);
+        
+    }
+    
+}
