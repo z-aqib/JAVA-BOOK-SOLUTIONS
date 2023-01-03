@@ -1,0 +1,83 @@
+package c2e18correct;
+
+public class C2e18correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        2.18 (Print a table)
+        Write a program that displays the following table. Cast floating-point numbers into integers.
+        a   b   pow(a, b)
+        1   2       1
+        2   3       8
+        3   4      81
+        4   5      1024
+        5   6     15625
+        */
+
+        // welcome to line
+        System.out.println("Welcome! This program displays all the numbers below 'a', "
+                + "with a power of one value greater than it that is in the form a^b. ");
+        System.out.println("In this program, a is 5 so b is 6. ");
+
+        // declare 'a' and 'b' variables for computation
+        int a = 1;
+        int b = 2;
+
+        // display main heading line
+        System.out.println("a   b   pow(a,b)    ");
+        
+        // compute answer
+        int ans = (int) Math.pow(a, b);
+
+        // output answer : a=1, b=2
+        System.out.println(a + "   " + b + "      " + ans);
+
+        // increment a and b
+        a++;
+        b++;
+        
+        // compute answer
+        ans = (int) Math.pow(a, b);
+
+        // output answer : a=2, b=3
+        System.out.println(a + "   " + b + "      " + ans);
+
+        // increment a and b 
+        a++;
+        b++;
+        
+        // compute answer
+        ans = (int) Math.pow(a, b);
+
+        // output answer : a=3, b=4
+        System.out.println(a + "   " + b + "      " + ans);
+
+        // increment a and b
+        a++;
+        b++;
+        
+        // compute answer
+        ans = (int) Math.pow(a, b);
+
+        // output answer : a=4 b=5
+        System.out.println(a + "   " + b + "      " + ans);
+
+        // increment a and b 
+        a++;
+        b++;
+        
+        // compute answer
+        ans = (int) Math.pow(a, b);
+
+        // output answer : a=5, b=6
+        System.out.println(a + "   " + b + "      " + ans);
+
+        // increment a and b 
+        a++;
+        b++;
+        
+    }
+    
+}
