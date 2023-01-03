@@ -1,0 +1,61 @@
+package c3e12;
+
+import java.util.Scanner;
+
+public class C3e12 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        3.12 (Palindrome integer) 
+        Write a program that prompts the user to enter a three-digit integer and 
+        determines whether it is a palindrome integer. An integer is palindrome
+        if it reads the same from right to left and from left to right. A 
+        negative integer is treated the same as a positive integer. 
+        Here are sample runs of this program:
+            Enter a three-digit integer: 121
+            121 is a palindrome
+                Enter a three-digit integer: 123
+                123 is not a palindrome
+        */
+        
+        // create a scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program determines whether or not your "
+                + "three-digit integer is a palindrome number or not. ");
+        System.out.println("An integer is palindrome if it reads the same from "
+                + "right to left and from left to right.");
+        System.out.println("A negative integer is treated the same as a positive "
+                + "integer.");
+        
+        // user input of number
+        System.out.println("Please enter your three-digit integer. ");
+        int num = input.nextInt();
+        
+        // num checker: if its a three digit number, proceed further
+        if (num > 99 && num <= 999) {
+            
+            // find the first digit
+            int firstdigit = num / 100;
+            
+            // find the third digit
+            int thirddigit = num % 10;
+            
+            // check if first digit and third digit are equal
+            if (firstdigit == thirddigit)
+                System.out.println(num+" is a palindrome. ");
+            else
+                System.out.println(num+" is not a palindrome. ");
+        
+        }
+        
+        // num checker: if num is not a three digit number, output error message and stop
+        else 
+            System.out.println("ERROR: Please enter a three digit number. ");
+        
+    }
+    
+}
