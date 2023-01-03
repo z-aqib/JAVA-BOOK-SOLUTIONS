@@ -1,0 +1,83 @@
+package c3e11;
+
+import java.util.Scanner;
+
+public class C3e11 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *3.11 (Find the number of days in a month) 
+        Write a program that prompts the user to enter the month and year and 
+        displays the number of days in the month. For example, if the user 
+        entered month 2 and year 2012, the program should display that February 
+        2012 has 29 days. If the user entered month 3 and year 2015, the program 
+        should display that March 2015 has 31 days.
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program will display the number of days in the month "
+                + "of which you require of a specific year. ");
+        
+        // user input of month number
+        System.out.println("Please enter the number of the month you require. ");
+        System.out.println("    Enter 1 for January, 2 for February, 3 for March, 4 "
+                + "for April, 5 for May, 6 for June, ");
+        System.out.println("    7 for July, 8 for August, 9 for September, 10 for "
+                + "October, 11 for November and 12 for December. ");
+        int num = input.nextInt();
+        
+        // month number checker: if its between 1 and 12, proceed further
+        if (num >= 1 && num <= 12) {
+            
+            // user input of year
+            System.out.println("Please enter the year you want to find in the form XXXX. ");
+            int year = input.nextInt();
+            
+            // year checker: if year is positive, proceed further
+            if (year > 999 && year < 10000) {
+                
+                // create switch case to display month, year and days
+                switch (num) {
+                    case 1 -> System.out.println("January "+year+" has 31 days. ");
+                    case 2 -> {
+                        // declare string of determining february days
+                        int feb;
+                        // compute days of february
+                        int rem = year % 4;
+                        if (rem == 0)
+                            feb = 29;
+                        else
+                            feb = 28;
+                        
+                        System.out.println("February "+year+" has "+feb+" days. ");
+                    }
+                    case 3 -> System.out.println("March "+year+" has 31 days. ");
+                    case 4 -> System.out.println("April "+year+" has 30 days. ");
+                    case 5 -> System.out.println("May "+year+" has 31 days. ");
+                    case 6 -> System.out.println("June "+year+" has 30 days. ");
+                    case 7 -> System.out.println("July "+year+" has 31 days. ");
+                    case 8 -> System.out.println("August "+year+" has 31 days. ");
+                    case 9 -> System.out.println("September "+year+" has 30 days. ");
+                    case 10 -> System.out.println("October "+year+" has 31 days. ");
+                    case 11 -> System.out.println("November "+year+" has 30 days. ");
+                    case 12 -> System.out.println("December "+year+" has 31 days. ");
+                }
+            }
+            
+            // year checker: if year is negative, output error message and stop
+            else
+                System.out.println("ERROR: Please enter a value for year in the form XXXX. ");
+            
+        }
+        // month number checker: if its not between 1-12, output error message and stop
+        else
+            System.out.println("ERROR: Please enter a value for month number in the range 1 to 12. ");
+        
+    }
+    
+}
