@@ -1,0 +1,93 @@
+package c3e05;
+
+import java.util.Scanner;
+
+public class C3e05 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *3.5 (Find future dates) 
+        Write a program that prompts the user to enter an integer for today’s 
+        day of the week (Sunday is 0, Monday is 1, . . . , and Saturday is 6). 
+        Also prompt the user to enter the number of days after today for a 
+        future day and display the future day of the week. 
+        Here is a sample run:
+            Enter today’s day: 1
+            Enter the number of days elapsed since today: 3
+            Today is Monday and the future day is Thursday
+                Enter today’s day: 0
+                Enter the number of days elapsed since today: 31
+                Today is Sunday and the future day is Wednesday
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays the current day of the "
+                + "week based on its integer. ");
+        System.out.println("Then this program displays a future day, based on the number "
+                + "of days after today. ");
+        System.out.println("Example, today is 1 ie Monday, and 3 days later would be Thursday. ");
+        
+        // user input of today
+        System.out.println("Please enter the integer to determine today's day of the week. ");
+        System.out.println("    Enter 0 for Sunday, 1 for Monday, 2 for Tuesday, "
+                + "3 for Wednesday, 4 for Thursday, 5 for Friday and 6 for Saturday. ");
+        int user = input.nextInt();
+        
+        // integer checker: if its between 0 and 6, proceed further
+        if (user >= 0 && user <= 6) {
+            
+            // user input of future days
+            System.out.println("Please enter the number of days elapsed since today. ");
+            int forward = input.nextInt();
+            
+            // output which day it is today
+            switch (user) {
+                case 0 -> System.out.print("Today is Sunday ");
+                case 1 -> System.out.print("Today is Monday ");
+                case 2 -> System.out.print("Today is Tuesday ");
+                case 3 -> System.out.print("Today is Wednesday ");
+                case 4 -> System.out.print("Today is Thursday ");
+                case 5 -> System.out.print("Today is Friday ");
+                case 6 -> System.out.print("Today is Saturday ");
+            }
+            
+            // find future day integer
+            int diff = user + forward;
+            int future = diff % 7; 
+            
+            // display which day it would be in future
+            switch (future) {
+                case 0 -> System.out.print("and the future day after " + forward + " "
+                        + "days would be Sunday. ");
+                case 1 -> System.out.print("and the future day after " + forward + " "
+                        + "days would be Monday. ");
+                case 2 -> System.out.print("and the future day after " + forward + " "
+                        + "days would be Tuesday. ");
+                case 3 -> System.out.print("and the future day after " + forward + " "
+                        + "days would be Wednesday. ");
+                case 4 -> System.out.print("and the future day after " + forward + " "
+                        + "days would be Thursday. ");
+                case 5 -> System.out.print("and the future day after " + forward + " "
+                        + "days would be Friday. ");
+                case 6 -> System.out.print("and the future day after " + forward + " "
+                        + "days would be Saturday. ");
+            }
+            
+            // leave a line
+            System.out.println("");
+            
+        }
+        
+        // integer checker: if its not in the range of 0-6, output error message and stop
+        else {
+            System.out.println("ERROR: Please enter a value for today's day in the range 0 to 6. ");
+        }
+    
+    }
+    
+}
