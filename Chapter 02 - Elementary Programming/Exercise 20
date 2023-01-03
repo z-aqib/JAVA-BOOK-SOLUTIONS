@@ -1,0 +1,69 @@
+package c2e20correct;
+
+import java.util.Scanner;
+
+public class C2e20correct {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *2.20 (Financial application: calculate interest) 
+        If you know the balance and the annual percentage interest rate, you 
+        can compute the interest on the next monthly payment using the following 
+        formula:
+            interest = balance * (annualInterestRate/1200)
+        Write a program that reads the balance and the annual percentage 
+        interest rate and displays the interest for the next month. 
+        Here is a sample run:
+            Enter balance and interest rate (e.g., 3 for 3%): 1000 3.5
+            The interest is 2.91667
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("FINANCIAL APPLICATION: COMPUTING INTEREST ");
+        System.out.println("Welcome! This program displays the interest for the next "
+                + "month based on your starting balance in dollars ($) and annual "
+                + "interest rate in percentage (%). ");
+        
+        // user input of starting balance
+        System.out.println("Please enter balance in dollars ($). ");
+        double balance = input.nextDouble();
+        
+        // user input of annual interest rate
+        System.out.println("Please enter annual interest rate in percentage (%). ");
+        System.out.println("    (Example 3 for 3%.) ");
+        double annual_interest_rate = input.nextDouble();
+            
+        // change annual interest rate from percentage to decimal
+        double annual_interest_decimal = annual_interest_rate / 100.0D;
+                
+        // compute interest rate from annual to monthly
+        double monthly_interest_decimal = annual_interest_decimal / 12.0D; 
+                
+        // compute formula to find interest after one month
+        double interest = balance * monthly_interest_decimal;
+        
+        // compute interest rounded to the nearest dollar
+        double interestrounded = Math.rint(interest);
+                
+        // display interest after one month and rounded to nearest dollar
+        System.out.println("The interest after one month is $" + interest + " rounded "
+                + "to the nearest dollar is $" + interestrounded);
+                
+        // find total money after adding interest to the starting balance
+        double finalbalance = interest + balance;
+                
+        // compute rounded total money to the nearest dollar after interest
+        double roundedbalance = balance + interestrounded;
+        
+        // output total money and rounded to nearest dollar
+        System.out.println("The balance after interest of one month is $" + finalbalance + 
+                " rounded to the nearest dollar is $" + roundedbalance);
+                
+    }
+    
+}
