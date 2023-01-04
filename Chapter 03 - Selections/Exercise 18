@@ -1,0 +1,79 @@
+package c3e18;
+
+import java.util.Scanner;
+
+public class C3e18 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *3.18 (Cost of shipping) 
+        A shipping company uses the following function to calculate the cost 
+        (in dollars) of shipping based on the weight of the package (in pounds).
+            cost per weight = $3.5, if 0 < w < = 1
+                              $5.5, if 1 < w < = 3
+                              $8.5, if 3 < w < = 10
+                              $10.5, if 10 < w < = 20
+        Write a program that prompts the user to enter the weight of the package 
+        and displays the shipping cost. If the weight is negative or zero, 
+        display a message “Invalid input.” If the weight is greater than 20, 
+        display a message “The package cannot be shipped.”
+        */
+        
+        // Create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays the shipping cost in dollars, "
+                + "of your package based on the entered weight in pounds. ");
+        System.out.println("The maximum weight that can be shipped is 20 pounds. ");
+        
+        // user input
+        System.out.print("Please enter the weight of the package in pounds: ");
+        double weight_of_package = input.nextDouble();
+        
+        // declare variable for cost per pound
+        double costpp = 0;
+        
+        // weight checker: if its between 0 and 1 pound, its cost is 3.50 dollars per pound
+        if (weight_of_package > 0 && weight_of_package <= 1)
+            costpp = 3.50;
+        
+        // weight checker: if its between 1 and 3 pounds, its cost is 5.50 dollars per pound
+        else if (weight_of_package > 1 && weight_of_package <= 3)
+            costpp = 5.50;
+            
+        // weight checker: if its between 3 and 10 pounds, its cost is 8.50 dollars per pound
+        else if (weight_of_package > 3 && weight_of_package <= 10)
+            costpp = 8.50;
+            
+        // weight checker: if its between 10 and 20 pounds, its cost is 10.50 dollars per pound
+        else if (weight_of_package > 10 && weight_of_package <= 20) 
+            costpp = 10.50;
+            
+        // weight checker: if its negative or zero, its an invalid weight input
+        else if (weight_of_package <= 0) 
+            System.out.println("ERROR: Invalid input. ");
+        
+        // weight checker: if its greater then 20 pounds, its not shippable
+        else
+            System.out.println("The package cannot be shipped. ");
+        
+        //if weight is not negative neither above 20, display its shipping and cost per pound
+        if (weight_of_package > 0 && weight_of_package <= 20) {
+            
+            // display the cost per pound
+            System.out.println("The cost per pound is " + costpp);
+            
+            // compute shipping cost, i.e. weight multiplied its cost per pound
+            double shipping = costpp * weight_of_package;
+            
+            // display the shipping cost
+            System.out.println("Shipping cost of package is $" + shipping);
+            
+        }
+        
+    }
+
+}
