@@ -1,0 +1,61 @@
+package c3e14;
+
+import java.util.Scanner;
+
+public class C3e14 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        3.14 (Game: heads or tails) 
+        Write a program that lets the user guess whether the flip of a coin 
+        results in heads or tails. The program randomly generates an integer 0 
+        or 1, which represents head or tail. The program prompts the user to 
+        enter a guess, and reports whether the guess is correct or incorrect.
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome line
+        System.out.println("Welcome! This is a guessing game. You will guess whether "
+                + "the flip of a coin is heads or tails. ");
+        System.out.println("The program will display "
+                + "whether the guess is correct or incorrect. ");
+        
+        // random integer generater
+        int flip = (int) (Math.rint(Math.random()));
+        
+        // user guess
+        System.out.println("The coin has been flipped. Guess the result! ");
+        System.out.println("Enter 0 for HEADS and 1 for TAILS. ");
+        int user = input.nextInt();
+       
+        // user number checker: if user entered is 0 or 1, proceed further
+        if (user == 1 || user == 0) {
+            
+            // display result is the user correct or incorrect
+            if (user == flip) 
+                System.out.print("CONGRATULATIONS! Your guess was correct. ");
+            else 
+                System.out.print("SORRY! Your guess was incorrect. ");
+            
+            // display result of the coin flip (regardless of incorrect or correct)
+            if (flip == 0)
+                System.out.print("It was heads. ");
+            else
+                System.out.print("It was tails. ");
+            
+            // leave a line
+            System.out.println("");
+            
+        }
+        
+        // user number checker: if user entered anything apart from 0 or 1, output error message and stop
+        else
+            System.out.println("ERROR: Please enter either 0 or 1 for heads or tails. ");
+
+    }
+
+}
