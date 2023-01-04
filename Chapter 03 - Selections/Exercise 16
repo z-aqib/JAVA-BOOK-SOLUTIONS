@@ -1,0 +1,52 @@
+package c3e16;
+
+public class C3e16 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        3.16 (Random point) 
+        Write a program that displays a random coordinate in a rectangle. The 
+        rectangle is centered at (0, 0) with width 100 and height 200.
+        */
+        
+        //welcome line
+        System.out.println("Welcome! This program displays a random coordinate of a "
+                + "rectangle centered at (0,0) with width 100 and height 200.");
+        
+        //random number computation
+        //so its x coordinate can fluctuate between -100 to 100 and y coordinate has range -50 to 50.
+        
+        /*
+        so we get a random number between 0 and 100. but the coordinate has to be between
+        50 and -50. so we subtract 50 from that random coordinate, that way no value
+        will be bigger then 50 or smaller then -50. example 78-50=28 and 28-50=-32
+        do this for both x and y coordinates whether vertical or horizontal
+        */
+        
+        //rectangle
+        double x = (Math.random() * 100) - 50;
+        double y = (Math.random() * 200) - 100;
+        
+        //display it
+        System.out.println("");
+        System.out.println("A random coordinate would be (" + x + ", " + y + "). ");
+        
+        //display vertical rectangle
+        System.out.println("A RECTANGLE WITH WIDTH 100 AND HEIGHT 200 AT (0,0)");
+        System.out.println("              y                          ");
+        System.out.println("              ^                          ");
+        System.out.println("              |                          ");
+        System.out.println("        |-----|100--|                    ");
+        System.out.println("        |     |     |                    ");
+        System.out.println("        |     |     |                    ");
+        System.out.println("--------------|----------------->x       ");
+        System.out.println("        -50   |     50                   ");
+        System.out.println("        |     |     |                    ");
+        System.out.println("        |-----|-100-|                    ");
+        System.out.println("              |                          ");
+        
+    }
+    
+}
