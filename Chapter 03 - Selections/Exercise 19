@@ -1,0 +1,97 @@
+package c3e19;
+
+import java.util.Scanner;
+
+public class C3e19 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        **3.19 (Compute the perimeter of a triangle) 
+        Write a program that reads three edges for a triangle and computes the 
+        perimeter if the input is valid. Otherwise, display that the input is 
+        invalid. The input is valid if the sum of every pair of two edges is 
+        greater than the remaining edge.
+        */
+        
+        // create Scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome line
+        System.out.println("Welcome! This program displays the perimeter of a triangle "
+                + "using three coordinates (x1,y1), (x2,y2), (x3,y3). ");
+        
+        // display each curriculam of each side
+        System.out.println("Side A: (x1, y1) and (x2, y2) ");
+        System.out.println("Side B: (x2, y2) and (x3, y3) ");
+        System.out.println("Side C: (x1, y1) and (x3, y3) ");
+        
+        // user input of first coordinate
+        System.out.print("Please enter x1 (x axis coordinate of first point): ");
+        double x1 = input.nextDouble();
+        System.out.print("Please enter y1 (y axis coordinate of first point): ");
+        double y1 = input.nextDouble();
+        
+        // user input of second coordinate
+        System.out.print("Please enter x2 (x axis coordinate of second point): ");
+        double x2 = input.nextDouble();
+        System.out.print("Please enter y2 (y axis coordinate of second point): ");
+        double y2 = input.nextDouble();
+        
+        // user input of third coordinate
+        System.out.print("Please enter x3 (x axis coordinate of third point): ");
+        double x3 = input.nextDouble();
+        System.out.print("Please enter y3 (y axis coordinate of third point): ");
+        double y3 = input.nextDouble();
+        
+        // display user coordinates
+        System.out.println("(x1, y1) = (" + x1 + ", " + y1 + ") ");
+        System.out.println("(x2, y2) = (" + x2 + ", " + y2 + ") ");
+        System.out.println("(x3, y3) = (" + x3 + ", " + y3 + ") ");
+        
+        // sum of coordinates 
+        double sum1 = x1 + y1;
+        double sum2 = x2 + y2;
+        double sum3 = x3 + y3;
+        
+        // check if coordinates are valid to find perimeter
+        if ((sum1 > sum2 && sum3 > sum2) || // sum1 and sum3 are greater then sum2
+                (sum1 > sum3 && sum2 > sum3) || // sum1 and sum2 are greater then sum3
+                (sum2 > sum1 && sum3 > sum1)) { // sum2 and sum3 are greater then sum1
+             
+            // find length of A side (1 & 2)
+            double xA = Math.pow(x2 - x1, 2);
+            double yA = Math.pow(y2 - y1, 2);
+            double A = Math.pow(xA + yA, 0.5);
+            
+            // find length of B side (2 & 3)
+            double xB = Math.pow(x3 - x2, 2);
+            double yB = Math.pow(y3 - y2, 2);
+            double B = Math.pow(xB + yB, 0.5);
+            
+            // find length of C side (1 & 3)
+            double xC = Math.pow(x3 - x1, 2);
+            double yC = Math.pow(y3 - y1, 2);
+            double C = Math.pow(xC + yC, 0.5);
+            
+            // display size of each side
+            System.out.println("Side A: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") = " + A);
+            System.out.println("Side B: (" + x2 + ", " + y2 + ") and (" + x3 + ", " + y3 + ") = " + B);
+            System.out.println("Side C: (" + x1 + ", " + y1 + ") and (" + x3 + ", " + y3 + ") = " + C);
+            
+            // compute perimeter
+            double perimeter = A + B + C;
+            
+            // display perimeter
+            System.out.println("The perimeter of the triangle is " + perimeter + " units. ");
+            
+        }
+        
+        // if its not valid, output error message and stop
+        else
+            System.out.println("ERROR: input is invalid and unable to compute. ");
+            
+    } 
+
+}
