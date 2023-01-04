@@ -1,0 +1,149 @@
+package c3e21;
+
+import java.util.Scanner;
+
+public class C3e21 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        **3.21 (Science: day of the week) 
+        Zeller’s congruence is an algorithm developed by Christian Zeller to 
+        calculate the day of the week. The formula is
+            h = (q + (26(m + 1)/10)+ k + (k/4)+ (j/4)+ 5j)%7
+        where
+        ■ h is the day of the week (0: Saturday, 1: Sunday, 2: Monday, 3: 
+        Tuesday, 4: Wednesday, 5: Thursday, and 6: Friday).
+        ■ q is the day of the month.
+        ■ m is the month (3: March, 4: April, ..., 12: December). January and 
+        February are counted as months 13 and 14 of the previous year.
+        ■ j is year/100.
+        ■ k is the year of the century (i.e., year % 100).
+        Note all divisions in this exercise perform an integer division. 
+        Write a program that prompts the user to enter a year, month, and day of 
+        the month, and displays the name of the day of the week. 
+        Here are some sample runs:
+            Enter year: (e.g., 2012): 2015
+            Enter month: 1−12: 1
+            Enter the day of the month: 1−31: 25
+            Day of the week is Sunday
+                Enter year: (e.g., 2012): 2012
+                Enter month: 1−12: 5
+                Enter the day of the month: 1−31: 12
+                Day of the week is Saturday
+        (Hint: January and February are counted as 13 and 14 in the formula, so 
+        you need to convert the user input 1 to 13 and 2 to 14 for the month and 
+        change the year to the previous year. For example, if the user enters 1 
+        for m and 2015 for year, m will be 13 and year will be 2014 used in the 
+        formula.)
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays the day of the week on "
+                + "a specific date and year. ");
+        System.out.println("To display the day on a specific date, you will be required "
+                + "to enter the: ");
+        System.out.println("    -> year (example 2012), ");
+        System.out.println("    -> month (from 1-12), ");
+        System.out.println("    -> date of the month (from 1-31) ");
+        
+        // user input of year
+        System.out.print("Please enter the year: ");
+        int year = input.nextInt();
+        
+        // year checker: if year is positive, proceed further
+        if (year > 0) {
+            
+            // user input of month
+            System.out.println("Enter 1 for January, 2 for February, 3 for March, "
+                    +"4 for April, 5 for May, 6 for June, 7 for July, ");
+            System.out.println("    8 for August, 9 for September, 10 for October, "
+                    +"11 for November, 12 for December. ");
+            System.out.print("Please enter month as a number (1-12): ");
+            int month = input.nextInt();
+            
+            // month checker: if month value is between 1-12, proceed further
+            if (month >= 1 && month <= 12) {
+                
+                // user input of day
+                System.out.print("Please enter day of month (1-31): ");
+                int date = input.nextInt();
+                
+                // day checker: if day value is between 1-31, proceed further
+                if (date >= 1 && date <= 31 ) {
+                    
+                    // change january or february
+                    if (month == 1 || month == 2){
+                        month = month + 12;
+                        year = year - 1;
+                    }
+                    
+                    // compute day (h)
+                    int day = (date + (26 * (month + 1)) / 10 + (year % 100) + (year % 100) / 4 + 
+                            (year / 100) / 4 + 5 * (year / 100)) % 7;
+                    
+                    // change year back to its original one for output
+                    if (month == 13 || month == 14)
+                        year = year + 1;
+                    
+                    // output statement: day
+                    System.out.print("The day of the week on " + date + " ");
+                    
+                    // output statement: month
+                    switch (month) {
+                        case 3 -> System.out.print("March ");
+                        case 4 -> System.out.print("April ");
+                        case 5 -> System.out.print("May ");
+                        case 6 -> System.out.print("June ");
+                        case 7 -> System.out.print("July ");
+                        case 8 -> System.out.print("August ");
+                        case 9 -> System.out.print("September ");
+                        case 10 -> System.out.print("October ");
+                        case 11 -> System.out.print("November ");
+                        case 12 -> System.out.print("December ");
+                        case 13 -> System.out.print("January ");
+                        case 14 -> System.out.print("February ");
+                    }
+                    
+                    // output statement: year
+                    System.out.print(year);
+                    
+                    // display day (h)
+                    switch (day) {
+                        case 0 -> System.out.print(" is Saturday. ");
+                        case 1 -> System.out.print(" is Sunday. ");
+                        case 2 -> System.out.print(" is Monday. ");
+                        case 3 -> System.out.print(" is Tuesday. ");
+                        case 4 -> System.out.print(" is Wednesday. ");
+                        case 5 -> System.out.print(" is Thursday. ");
+                        case 6 -> System.out.print(" is Friday. ");
+                    }
+                    
+                    // leave a line
+                    System.out.println("");
+                    
+                }
+                
+                // day checker: if day value is not between 1-31, output error message and stop
+                else
+                    System.out.println("ERROR: Please enter a value for day in the range 1-31. ");
+                
+            }
+            
+            // month checker: if month value is not between 1-12, output error message and stop
+            else
+                System.out.println("ERROR: Please enter a value for month in the range 1-12. ");
+            
+        }
+        
+        // year checker: if year is negative or 0, output error message and stop
+        else
+            System.out.println("ERROR: Please enter a positive value for year. ");
+        
+    }
+    
+}
