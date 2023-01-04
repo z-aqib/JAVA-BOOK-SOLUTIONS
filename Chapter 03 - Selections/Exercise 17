@@ -1,0 +1,97 @@
+package c3e17;
+
+import java.util.Scanner;
+
+public class C3e17 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+         * *3.17 (Game: scissor, rock, paper) 
+         * Write a program that plays the popular scissor–rock–paper game. (A 
+         * scissor can cut a paper, a rock can knock a scissor, and a paper can 
+         * wrap a rock.) The program randomly generates a number 0, 1, or 2 
+         * representing scissor, rock, and paper. The program prompts the user 
+         * to enter a number 0, 1, or 2 and displays a message indicating 
+         * whether the user or the computer wins, loses, or draws. 
+         * Here are sample runs:
+                scissor (0), rock (1), paper (2): 1
+                The computer is scissor. You are rock. You won
+                    scissor (0), rock (1), paper (2): 2
+                        The computer is paper. You are paper too. It is a draw
+         */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome to line
+        System.out.println("Welcome to the ROCK PAPER SCISSORS game! You and the "
+                + "computer shall be playing. ");
+        
+        // user input
+        System.out.print("Enter 0 for scissors, 1 for rock or 2 for paper: ");
+        int user = input.nextInt();
+        
+        // user input checker: if its either 0 or 1 or 2, proceed further
+        if (user == 0 || user ==1 || user == 2) {
+            
+            // computer generator
+            int computer = (int) (Math.random() * 3);
+            
+            // display computer result
+            switch (computer) {
+                case 0 -> System.out.print("The computer is scissors. ");
+                case 1 -> System.out.print("The computer is rock. ");
+                case 2 -> System.out.print("The computer is paper. ");
+            }
+            
+            // display user result
+            switch (user) {
+                case 0 -> System.out.print("You are scissors. ");
+                case 1 -> System.out.print("You are rock. ");
+                case 2 -> System.out.print("You are paper. ");
+            }
+            
+            // display results
+            
+            // if both are same, output draw
+            if (computer == user ) 
+                System.out.print("It is a draw. ");
+            
+            // if computer is scissor and user is paper, computer won
+            else if (computer == 0 && user == 2) 
+                System.out.print("You lost. ");
+            
+            // if computer is rock and user is scissor, computer won
+            else if (computer == 1 && user == 0)
+                System.out.print("You lost. ");
+            
+            // if computer is paper and user is rock, computer won
+            else if (computer == 2 && user == 1)
+                System.out.print("You lost. ");
+            
+            // if user is scissor and computer is paper, user won
+            else if (user == 0 && computer == 2)
+                System.out.print("You won. ");
+            
+            // if user is rock and computer is scissor, user won
+            else if (user == 1 && computer == 0)
+                System.out.print("You won. ");
+            
+            // if user is paper and computer is rock, user won
+            else if (user == 2 && computer == 1)
+                System.out.print("You won. ");
+            
+            // leave a line
+            System.out.println("");
+            
+        }
+        
+        // user input checker: if its neither 0 or 1 or 2, output error message and stop
+        else
+            System.out.println("ERROR: Please enter either 0, 1 or 2 to play the game. ");
+    
+    }
+
+}
