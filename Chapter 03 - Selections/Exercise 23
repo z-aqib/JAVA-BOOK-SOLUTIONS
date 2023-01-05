@@ -1,0 +1,98 @@
+package c3e23;
+
+import java.util.Scanner;
+
+public class C3e23 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        **3.23 (Geometry: point in a rectangle?) 
+        Write a program that prompts the user to enter a point (x, y) and checks 
+        whether the point is within the rectangle centered at (0, 0) with width 
+        10 and height 5. For example, (2, 2) is inside the rectangle and (6, 4) 
+        is outside the rectangle, as shown in Figure 3.7b. (Hint: A point is in 
+        the rectangle if its horizontal distance to (0, 0) is less than or equal 
+        to 10 / 2 and its vertical distance to (0, 0) is less than or equal to 
+        5.0 / 2. Test your program to cover all cases.) 
+        Here are two sample runs:
+            Enter a point with two coordinates: −4.9 2.49
+            Point (−4.9, 2.49) is in the rectangle
+                Enter a point with two coordinates: −5.1 −2.4
+                Point (−5.1, −2.4) is not in the rectangle
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome line
+        System.out.println("Welcome! This program displays whether a point (x,y) is within "
+                + "a rectangle of width 10 units and height 5 units. ");
+        
+        // user input of point
+        System.out.print("Please enter x axis coordinate of point: ");
+        double x = input.nextDouble();
+        System.out.print("Please enter y axis coordinate of point: ");
+        double y = input.nextDouble();
+        
+        // declare variable of xdistance
+        double xdistance;
+        
+        // first change xdistance (x-0=x) into positive (modulus)
+        if (x < 0) {
+            // if x is negative, change to positive ie -(-5) = 5
+            xdistance = - x;
+        }
+        else {
+            // if x is positive, leave it as it is ie 2 = 2
+            xdistance = x;
+        }
+        
+        // declare variable for ydistance
+        double ydistance;
+        
+        // first change ydistance (y-0=y) into positive (modulus)
+        if (y < 0) {
+            // if y is negative, change to positive ie -(-5) = 5
+            ydistance = - y;
+        }
+        else {
+            // if y is positive, leave it as it is ie 2 = 2
+            ydistance = y;
+        }
+        
+        // display the point
+        System.out.print("Point ("+x+", "+y+") ");
+        
+        // apply conditional statement
+        if (xdistance < 5D && ydistance < 2.5D) {
+            
+            // if its x coordinate is less then 5 units and y coordinate less then 2.5 units
+            // the point is within the rectangle
+            System.out.print("is in the rectangle. ");
+            
+        }
+        
+        // apply conditional statement
+        else if (xdistance == 5 && ydistance == 2.5) {
+            
+            /* 
+            if its x coordinate is exactly 5 units and y coordinate is exactly 2.5 
+            units it means its on the perimeter border of the rectangle 
+            */
+            System.out.print("is on the edge (perimeter) of the rectangle. ");
+            
+        }
+        
+        else {
+            // else if its not, its not in the rectangle
+            System.out.print("is not in the rectangle. ");
+        }
+        
+        // leave a line
+        System.out.println("");
+        
+    }
+
+}
