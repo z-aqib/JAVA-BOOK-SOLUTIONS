@@ -1,0 +1,78 @@
+package c3e22;
+
+import java.util.Scanner;
+
+public class C3e22 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        **3.22 (Geometry: point in a circle?) 
+        Write a program that prompts the user to enter a point (x, y) and checks 
+        whether the point is within the circle centered at (0, 0) with radius 10. 
+        For example, (4, 5) is inside the circle and (9, 9) is outside the circle, 
+        as shown in Figure 3.7a.
+        (Hint: A point is in the circle if its distance to (0, 0) is less than 
+        or equal to 10. The formula for computing the distance is 
+            ((x2 - x1)^2 + (y2 - y1)^2)^0.5
+        . Test your program to cover all cases.) 
+        Two sample runs are shown below:
+            Enter a point with two coordinates: 4 5
+            Point (4.0, 5.0) is in the circle
+                Enter a point with two coordinates: 9 9
+                Point (9.0, 9.0) is not in the circle
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program displays whether or not a point "
+                + "is within a circle of radius 10 units and center (0,0). ");
+        
+        // user input of coordinate
+        System.out.print("Please enter the x axis coordinate of the point: ");
+        double x = input.nextDouble();
+        System.out.print("Please enter the y axis coordinate of the point: ");
+        double y = input.nextDouble();
+        
+        // distance of this coordinate from origin
+        double xdistance = Math.pow(x , 2);
+        double ydistance = Math.pow(y , 2);
+        double xysum = xdistance + ydistance;
+        double distance = Math.pow(xysum, 0.5);
+        
+        // display point coordinates
+        System.out.print("Point (" + x + ", " + y + ") ");
+        
+        // distance checker: if distance is less then 10 units, its inside
+        if (distance < 10) {
+            
+            // display a yes message that this point is within circle
+            System.out.print("is in the circle. ");
+            
+        }
+        
+        // distance checker: if distance is greater then 10 units, its outside
+        else if (distance > 10) {
+            
+            // display a no message that this point is not within circle
+            System.out.print("is not in the circle. ");
+            
+        }
+        
+        // distance checker: if distance is 10, its on the border/edge
+        else if (distance == 10 ) {
+            
+            // display a message that this point is on the border of the circle
+            System.out.print("is on the circumference of the circle. ");
+            
+        }
+        
+        // leave a line
+        System.out.println("");
+        
+    }
+    
+}
