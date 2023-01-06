@@ -1,0 +1,108 @@
+package c3e27;
+
+import java.util.Scanner;
+
+public class C3e27 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        ** 3.27 (Geometry: points in triangle?) 
+        Suppose a right triangle is placed in a plane as shown below. The right-
+        angle point is placed at (0, 0), and the other two points are placed at 
+        (200, 0) and (0, 100). 
+        Write a program that prompts the user to enter a point with x- and 
+        y-coordinates and determines whether the point is inside the triangle. 
+        Here are the sample runs:
+            Enter a point’s x- and y-coordinates: 100.5 25.5
+            The point is in the triangle
+                Enter a point’s x- and y-coordinates: 100.5 50.5
+                The point is not in the triangle
+        */
+        
+        // create a scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome line
+        System.out.println("Welcome! This program displays whether or not your point (x,y) "
+                + "is in the right-angled triangle or not. ");
+        System.out.println("The dimensions of the triangle are, ");
+        System.out.println("    -> The right-angle point is placed at (0, 0), ");
+        System.out.println("    -> the other two points are placed at (200, 0) and (0, 100). ");
+        
+        // compute line of hypotenuse y = mx + c
+        double m = (0 - 100.0D) / (200.0D - 0);
+        double c = 0.0 - (m * 200.0D);
+        
+        // graphical representation printout of triangle
+        System.out.println("THE RIGHT-ANGLED TRIANGLE:          ");
+        System.out.println("                                    ");
+        System.out.println("    y                               ");
+        System.out.println("    ^                               ");
+        System.out.println("    |(0,100)                        ");
+        System.out.println("    |\\                             ");
+        System.out.println("    |  \\                           ");
+        System.out.println("    |    \\                         ");
+        System.out.println("    |      \\                       ");
+        System.out.println("------------------------> x         ");
+        System.out.println("    |(0,0)    (200,0)               ");
+        System.out.println("                                    ");
+        
+        // user input of point
+        System.out.print("Please enter x axis coordinate of point: ");
+        double x = input.nextDouble();
+        System.out.print("Please enter y axis coordinate of point: ");
+        double y = input.nextDouble();
+        
+        // x checker: if x coordinate is between 0 and 200, then it has the 
+        // possibility of being inside the triangle
+        if (x >= 0 && x <= 200) {
+            
+            // y checker: if y coordinate is between 0 and 100, then it is inside the triangle
+            if (y >= 0 && y <= 200) {
+                
+                /* 
+                now x axis is inside. y axis is inside range. 
+                but as its a triangle, a point inside x axis could be outside 
+                the triangle even though its within the y axis range
+                */
+                
+                // find max y coordinate at that x coordinate
+                double ymax = m * x + c;
+                
+                // if user y coordinate is lesser then ymax, display yes its inside
+                if (y < ymax) {
+                    System.out.println("The point (" + x + ", " + y + ") is in the triangle. ");
+                }
+                
+                // but if user y coordinate is equal to ymax, its on boundary
+                else if (y == ymax) {
+                    System.out.println("The point (" + x + ", " + y + ") is on the boundary "
+                            + "of the triangle. ");
+                }
+                
+                // else its outside
+                else {
+                    System.out.println("The point (" + x + ", " + y + ") is not in the triangle. ");
+                }
+                
+            }
+            
+            // y checker: if y coordinate is lesser then 0 or greater then 200,
+            // then it is not inside the triangle, output message and stop
+            else {
+                System.out.println("The point (" + x + ", " + y + ") is not in the triangle. ");
+            }
+            
+        }
+        
+        // x checker: if x coordinate is lesser then 0 or greater then 200,
+        // then it is not inside the triangle, output message and stop
+        else {
+            System.out.println("The point (" + x + ", " + y + ") is not in the triangle. ");
+        }
+        
+    }
+    
+}
