@@ -1,0 +1,104 @@
+package c3e26;
+
+import java.util.Scanner;
+
+public class C3e26 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        3.26 (Use the &&, ||, and ^ operators) 
+        Write a program that prompts the user to enter an integer and determines 
+        whether it is divisible by 5 and 6, whether it is divisible by 5 or 6, 
+        and whether it is divisible by 5 or 6, but not both. 
+        Here is a sample run of this program:
+            Enter an integer: 10
+            Is 10 divisible by 5 and 6? false
+            Is 10 divisible by 5 or 6? true
+            Is 10 divisible by 5 or 6, but not both? true
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome line
+        System.out.println("Welcome! This program will display if an integer is, ");
+        System.out.println("    -> divisible by 5 and 6, ");
+        System.out.println("    -> divisible by 5 or 6, ");
+        System.out.println("    -> divisible by 5 or 6 but not both?");
+        
+        // user input
+        System.out.print("Please enter an integer: ");
+        int user = input.nextInt();
+        
+        // divide by 5
+        int rem5 = user % 5;
+        
+        // divide by 6
+        int rem6 = user % 6;
+        
+        // first statement printed
+        System.out.print("Is " + user + " divisible by 5 and 6? ");
+        
+        // first statement: if case 1 and case 2 is proved, print true
+        // case 1: 5 is divisible
+        // case 2: 6 is divisible
+        if (rem5 == 0 && rem6 == 0) {
+            System.out.print("true ");
+        }
+        
+        // first statement: if case 1 or case 2 or case 3 is proved, print false
+        // case 1: 5 is divisible but 6 is not
+        // case 2: 6 is divisible but 5 is not
+        // case 3: both 5 and 6 are not divisible
+        else {
+            System.out.print("false ");
+        }
+        
+        // leave a line
+        System.out.println("");
+            
+        // second statement printed
+        System.out.print("Is " + user + " divisible by 5 or 6? ");
+        
+        // second statement: if case 1 or case 2 is proved, print true
+        // case 1: 5 is divisible
+        // case 2: 6 is divisible
+        if (rem5 == 0 || rem6 == 0) {
+            System.out.print("true ");
+        }
+        
+        // second statement: if case 1 and case 2 is proved, print false
+        // case 1: 5 is not divisible
+        // case 2: 6 is not divisible
+        else {
+            System.out.print("false ");
+        }
+        
+        // leave a line
+        System.out.println("");
+        
+        // third statement printed
+        System.out.print("Is " + user + " divisible by 5 or 6, but not both? ");
+        
+        // third statement: if case 1 or case 2 is proved, print true
+        // case 1: 5 is divisible but 6 is not
+        // case 2: 6 is divisible but 5 is not
+        if ((rem5 == 0 && rem6 != 0) || (rem6 == 0 && rem5 != 0)) {
+            System.out.print("true ");
+        }
+        
+        // third statement: if case 1 and case 2 proved, output false
+        // case 1: both 5 and 6 are divisible
+        // case 2: neither 5 and 6 are divisible
+        else {
+            System.out.print("false ");
+        }
+    
+        // leave a line
+        System.out.println("");
+        
+    }
+
+}
