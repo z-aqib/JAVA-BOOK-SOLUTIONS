@@ -1,0 +1,188 @@
+package c3e25;
+
+import java.util.Scanner;
+
+public class C3e25 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        /*
+        *3.25 (Geometry: intersecting point) 
+        Two points on line 1 are given as (x1, y1) and (x2, y2) and on line 2 as 
+        (x3, y3) and (x4, y4), as shown in Figure 3.8a and b.
+        The intersecting point of the two lines can be found by solving the 
+        following linear equations:
+            (y1 - y2)x - (x1 - x2)y = (y1 - y2)x1 - (x1 - x2)y1
+            (y3 - y4)x - (x3 - x4)y = (y3 - y4)x3 - (x3 - x4)y3
+        This linear equation can be solved using Cramer’s rule (see Programming
+        Exercise  3.3). If the equation has no solutions, the two lines are 
+        parallel (see Figure 3.8c). 
+        Write a program that prompts the user to enter four points and displays 
+        the intersecting point. 
+        Here are sample runs:
+            Enter x1, y1, x2, y2, x3, y3, x4, y4: 2 2 5 −1.0 4.0 2.0 −1.0 −2.0
+            The intersecting point is at (2.88889, 1.1111)
+                Enter x1, y1, x2, y2, x3, y3, x4, y4: 2 2 7 6.0 4.0 2.0 −1.0 −2.0
+                The two lines are parallel
+        */
+        
+        /*
+        *3.3 (Algebra: solve 2 * 2 linear equations) 
+        A linear equation can be solved using Cramer’s rule given in Programming 
+        Exercise 1.13. 
+        Write a program that prompts the user to enter a, b, c, d, e, and f and 
+        displays the result. If ad - bc is 0, report that “The equation has no 
+        solution.”
+            Enter a, b, c, d, e, f: 9.0 4.0 3.0 −5.0 −6.0 −21.0
+            x is −2.0 and y is 3.0
+                Enter a, b, c, d, e, f: 1.0 2.0 2.0 4.0 4.0 5.0
+                The equation has no solution
+        */
+        
+        /*
+        *1.13 (Algebra: solve 2 * 2 linear equations) You can use Cramer’s rule 
+        to solve the following 2 * 2 system of linear equation provided that 
+        ad – bc is not 0:
+            ax + by = e && cx + dy = f
+            x = (ed - bf) / (ad - bc)
+            y = (af - ec) / (ad - bc)
+        Write a program that solves the following equation and displays the 
+        value for x and y: (Hint: replace the symbols in the formula with numbers 
+        to compute x and y. This exercise can be done in Chapter 1 without using 
+        materials in later chapters.)
+            3.4x + 50.2y = 44.5
+            2.1x + .55y = 5.9
+        */
+        
+        /*
+        EXERCISE 3.3 SOLUTION:
+        
+        // create Scanner object for user input
+        Scanner input = new Scanner (System.in);
+        
+        // welcome to line
+        System.out.println("ALGEBRA: SOLVE 2 * 2 LINEAR EQUATIONS");
+        System.out.println("Welcome! This program will solve two linear equations "
+                + "of your requirement. ");
+        System.out.println("The standard format of these two equations is ");
+        System.out.println("    ax + by = e     cx + dy = f ");
+        
+        // user input
+        System.out.print("Please enter 'a': ");
+        double a = input.nextInt();
+        System.out.print("Please enter 'b': ");
+        double b = input.nextInt();
+        System.out.print("Please enter 'c': ");
+        double c = input.nextInt();
+        System.out.print("Please enter 'd': ");
+        double d = input.nextInt();
+        System.out.print("Please enter 'e': ");
+        double e = input.nextInt();
+        System.out.print("Please enter 'f': ");
+        double f = input.nextInt();
+        
+        // display equation
+        System.out.println("The two equations ");
+        // ax + by = e
+        System.out.println("    " + a + "x + " + b +"y = " + e);
+        // cx + dy = f
+        System.out.println("    " + c + "x + " + d +"y = " + f);
+        
+        // calculate checker of solutions
+        double checker = a*d - b*c;
+        
+        // solution checker: if its not 0, proceed with calculations
+        if (checker != 0) {
+            
+            // compute x
+            double x = (e*d - b*f) / (a*d - b*c);
+            
+            // compute y
+            double y = (a*f - e*c) / (a*d - b*c);
+            
+            // display the values of x and y
+            System.out.println(" have solutions     x = " + x + "   y = " + y);
+            
+        }
+        
+        // solution checker: if its 0, then output there are no solutions and stop
+        else {
+            System.out.println(" have no solutions");
+        }
+        
+        */
+        
+        // create scanner object for user input
+        Scanner input = new Scanner(System.in);
+        
+        // welcome to line
+        System.out.println("Welcome! This program finds the intersecting point "
+                + "of two lines. ");
+        System.out.println("Two points on line 1 are given as (x1, y1) and (x2, y2) "
+                + "and on line 2 as (x3, y3) and (x4, y4) ");
+        
+        // user input of first coordinate
+        System.out.print("Please enter (x1) x axis coordinate of first point: ");
+        double x1 = input.nextDouble();
+        System.out.print("Please enter (y1) y axis coordinate of first point: ");
+        double y1 = input.nextDouble();
+        
+        // user input of second coordinate
+        System.out.print("Please enter (x2) x axis coordinate of second point: ");
+        double x2 = input.nextDouble();
+        System.out.print("Please enter (y2) y axis coordinate of second point: ");
+        double y2 = input.nextDouble();
+        
+        // user input of third coordinate
+        System.out.print("Please enter (x3) x axis coordinate of third point: ");
+        double x3 = input.nextDouble();
+        System.out.print("Please enter (y3) y axis coordinate of third point: ");
+        double y3 = input.nextDouble();
+        
+        // user input of fourth coordinate
+        System.out.print("Please enter (x4) x axis coordinate of fourth point: ");
+        double x4 = input.nextDouble();
+        System.out.print("Please enter (y4) y axis coordinate of fourth point: ");
+        double y4 = input.nextDouble();
+        
+        // compute a, b, e, c, d, f
+        double a = y1 - y2;
+        double b = x1 - x2;
+        double e = ((y1 - y2) * x1) - ((x1 - x2) * y1);
+        double c = y3 - y4;
+        double d = x3 - x4;
+        double f = ((y3 - y4) * x3) - ((x3 - x4) * y3);
+        
+        // display the two equations: ax + by = e and cx + dy = f 
+        System.out.println("The two equations are: ");
+        System.out.println("(" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") "
+                + "form " + a + "x + " + b + "y = " + e);
+        System.out.println("(" + x3 + ", " + y3 + ") and (" + x4 + ", " + y4 + ") "
+                + "form " + c + "x + " + d + "y = " + f);
+        
+        // calculate checker of solutions
+        double checker = a * d - b * c;
+        
+        // solution checker: if its not 0, proceed with calculations
+        if (checker != 0) {
+            
+            // compute x
+            double x = (e*d - b*f) / (a*d - b*c);
+            
+            // compute y
+            double y = (a*f - e*c) / (a*d - b*c);
+            
+            // display the values of x and y
+            System.out.println("The intersecting point is at (" + x + ", " + y + "). ");
+            
+        }
+        
+        // solution checker: if its 0, then output there are no solutions and stop
+        else {
+            System.out.println("The two lines are parallel. ");
+        }
+        
+    }
+
+}
