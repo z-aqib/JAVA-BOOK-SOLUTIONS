@@ -1,0 +1,22 @@
+package c1e2;
+
+public class C1e2 {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+
+        /*
+        1.2 
+        (Display five messages) Write a program that displays Welcome to Java 
+        five times.
+        */
+
+        System.out.println("Welcome to Java!");
+        System.out.println("Welcome to Java!");
+        System.out.println("Welcome to Java!");
+        System.out.println("Welcome to Java!");
+        System.out.println("Welcome to Java!");
+
+    }
+
+}
